@@ -1,0 +1,9 @@
+/home/stduser/Coding/Softwares/memeshare-applet/target/wasm32-unknown-unknown/release/deps/cargo_platform-13d54ca61ac44920.rmeta: /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/cargo-platform-0.1.2/src/lib.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/cargo-platform-0.1.2/src/cfg.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/cargo-platform-0.1.2/src/error.rs
+
+/home/stduser/Coding/Softwares/memeshare-applet/target/wasm32-unknown-unknown/release/deps/libcargo_platform-13d54ca61ac44920.rlib: /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/cargo-platform-0.1.2/src/lib.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/cargo-platform-0.1.2/src/cfg.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/cargo-platform-0.1.2/src/error.rs
+
+/home/stduser/Coding/Softwares/memeshare-applet/target/wasm32-unknown-unknown/release/deps/cargo_platform-13d54ca61ac44920.d: /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/cargo-platform-0.1.2/src/lib.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/cargo-platform-0.1.2/src/cfg.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/cargo-platform-0.1.2/src/error.rs
+
+/home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/cargo-platform-0.1.2/src/lib.rs:
+/home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/cargo-platform-0.1.2/src/cfg.rs:
+/home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/cargo-platform-0.1.2/src/error.rs:

@@ -30,6 +30,13 @@ export class TodoStore {
 
   // return all tasks in a list
   listTasks(listName: string) {
+    console.log("inside listTasks");
+    return derived(this.#tasksInLists, lists => lists[listName]);
+  }
+
+  listTasksForListName (listName: string) {
+    console.log("inside listTasksForListName");
+    this.fetchAllTasks()
     return derived(this.#tasksInLists, lists => lists[listName]);
   }
 
@@ -41,6 +48,7 @@ export class TodoStore {
   // get all the task entry hashes so that we can get the assessments for them
   // or for computing contexts
   allTaskEntryHashes() {
+    console.log("inside allTaskEntryHashes");
     return derived(this.#tasksInLists, lists => {
       let allTaskEhs: EntryHash[] = []
       const listNames = Object.keys(lists);
@@ -56,6 +64,7 @@ export class TodoStore {
   }
 
   tasksFromEntryHashes(entryHashes: EntryHash[]) {
+    console.log("inside tasksFromEntryHashes");
     const serializedEntryHashes = entryHashes.map(entryHash => encodeHashToBase64(entryHash));
     return derived(this.#tasksInLists, lists => {
       let tasks: WrappedEntry<Task>[] = [];
@@ -67,6 +76,7 @@ export class TodoStore {
   }
 
   async fetchAllTasks() {
+    console.log("inside fetchAllTasks");
     const fetchedTasks = await this.service.getAllTasks();
     this.#tasksInLists.update(tasks => ({
       ...tasks,
@@ -85,10 +95,15 @@ export class TodoStore {
   }
 
   async addTaskToList(task: TaskToListInput) {
+    console.log("in todo store addTaskToList. Task.meme_image_src is  + task.meme_image_src");
     let newTask = await this.service.addTaskToList(task);
+    console.log("new Task description is" + newTask.entry.description);
+    console.log("new Task meme image src is" + newTask.entry.meme_image_src);
 
     this.#tasksInLists.update(lists => {
       lists[task.list] = [...lists[task.list], newTask];
+      console.log("in addTaskToList in update. Description is" + lists[task.list][0].entry.description);
+      console.log("in addTaskToList in update. meme image src is" + lists[task.list][0].entry.meme_image_src);
       return lists;
     });
   }

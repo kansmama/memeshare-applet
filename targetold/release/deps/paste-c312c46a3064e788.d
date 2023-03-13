@@ -1,0 +1,8 @@
+/home/stduser/Coding/Softwares/memeshare-applet/target/release/deps/libpaste-c312c46a3064e788.so: /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/paste-1.0.5/src/lib.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/paste-1.0.5/src/attr.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/paste-1.0.5/src/error.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/paste-1.0.5/src/segment.rs
+
+/home/stduser/Coding/Softwares/memeshare-applet/target/release/deps/paste-c312c46a3064e788.d: /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/paste-1.0.5/src/lib.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/paste-1.0.5/src/attr.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/paste-1.0.5/src/error.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/paste-1.0.5/src/segment.rs
+
+/home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/paste-1.0.5/src/lib.rs:
+/home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/paste-1.0.5/src/attr.rs:
+/home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/paste-1.0.5/src/error.rs:
+/home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/paste-1.0.5/src/segment.rs:

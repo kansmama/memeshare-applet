@@ -40,11 +40,13 @@ pub fn create_new_list(list_name: String) -> ExternResult<()> {
 #[hdk_extern]
 pub fn add_task_to_list(
     TaskToListInput {
+        input_meme_image_src,
         task_description,
         list,
     }: TaskToListInput,
 ) -> ExternResult<WrappedEntry<Task>> {
     let task = Task {
+        meme_image_src: input_meme_image_src,
         description: task_description,
         status: TaskStatus::Incomplete,
     };
@@ -61,6 +63,7 @@ pub fn add_task_to_list(
 
 #[derive(Debug, Clone, Serialize, Deserialize, SerializedBytes)]
 pub struct TaskToListInput {
+    input_meme_image_src: String,
     task_description: String,
     list: String,
 }
@@ -72,6 +75,7 @@ pub fn complete_task(task_action_hash: ActionHash) -> ExternResult<ActionHash> {
     ))?;
 
     let updated_task = Task {
+        meme_image_src: task.meme_image_src,
         description: task.description,
         status: TaskStatus::Complete,
     };
@@ -85,6 +89,7 @@ pub fn uncomplete_task(task_action_hash: ActionHash) -> ExternResult<ActionHash>
     ))?;
 
     let updated_task = Task {
+        meme_image_src: task.meme_image_src,
         description: task.description,
         status: TaskStatus::Incomplete,
     };

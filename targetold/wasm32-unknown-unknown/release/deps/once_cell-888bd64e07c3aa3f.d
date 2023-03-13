@@ -1,0 +1,9 @@
+/home/stduser/Coding/Softwares/memeshare-applet/target/wasm32-unknown-unknown/release/deps/once_cell-888bd64e07c3aa3f.rmeta: /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/once_cell-1.17.0/src/lib.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/once_cell-1.17.0/src/imp_std.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/once_cell-1.17.0/src/race.rs
+
+/home/stduser/Coding/Softwares/memeshare-applet/target/wasm32-unknown-unknown/release/deps/libonce_cell-888bd64e07c3aa3f.rlib: /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/once_cell-1.17.0/src/lib.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/once_cell-1.17.0/src/imp_std.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/once_cell-1.17.0/src/race.rs
+
+/home/stduser/Coding/Softwares/memeshare-applet/target/wasm32-unknown-unknown/release/deps/once_cell-888bd64e07c3aa3f.d: /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/once_cell-1.17.0/src/lib.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/once_cell-1.17.0/src/imp_std.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/once_cell-1.17.0/src/race.rs
+
+/home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/once_cell-1.17.0/src/lib.rs:
+/home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/once_cell-1.17.0/src/imp_std.rs:
+/home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/once_cell-1.17.0/src/race.rs:

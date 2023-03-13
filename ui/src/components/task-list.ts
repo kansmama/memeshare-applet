@@ -50,14 +50,19 @@ export class TaskList extends ScopedElementsMixin(LitElement) {
         }
     }
     async addNewTask(e: CustomEvent) {
-       await this.todoStore.addTaskToList({
+       console.log ("in add new task new meme image src is  + e.detail.new_meme_image_src")
+       console.log("in add new task new value is " + e.detail.newValue)
+        await this.todoStore.addTaskToList({
+        input_meme_image_src: e.detail.new_meme_image_src,
         task_description: e.detail.newValue,
         list: this.listName!,
     })
+        await this.todoStore.fetchAllTasks
         this.updateTaskList()
     }
     updateTaskList() {
         // check if displaying a context or not
+        console.log("inside updateTaskList");
         if (this.listName && !this.isContext) {
             const tasksWithAssessments = addMyAssessmentsToTasks(this.todoStore.myAgentPubKey, get(this.todoStore.listTasks(this.listName)), get(this.sensemakerStore.resourceAssessments()));
             this.tasks = html`

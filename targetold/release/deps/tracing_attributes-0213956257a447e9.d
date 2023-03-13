@@ -1,0 +1,7 @@
+/home/stduser/Coding/Softwares/memeshare-applet/target/release/deps/libtracing_attributes-0213956257a447e9.so: /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-attributes-0.1.23/src/lib.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-attributes-0.1.23/src/attr.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-attributes-0.1.23/src/expand.rs
+
+/home/stduser/Coding/Softwares/memeshare-applet/target/release/deps/tracing_attributes-0213956257a447e9.d: /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-attributes-0.1.23/src/lib.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-attributes-0.1.23/src/attr.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-attributes-0.1.23/src/expand.rs
+
+/home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-attributes-0.1.23/src/lib.rs:
+/home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-attributes-0.1.23/src/attr.rs:
+/home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/tracing-attributes-0.1.23/src/expand.rs:

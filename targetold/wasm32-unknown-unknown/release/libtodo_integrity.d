@@ -1,0 +1,1 @@
+/home/stduser/Coding/Softwares/memeshare-applet/target/wasm32-unknown-unknown/release/libtodo_integrity.rlib: /home/stduser/Coding/Softwares/memeshare-applet/dna/integrity_zomes/todo_integrity/src/lib.rs

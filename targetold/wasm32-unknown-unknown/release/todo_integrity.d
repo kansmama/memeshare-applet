@@ -1,0 +1,1 @@
+/home/stduser/Coding/Softwares/memeshare-applet/target/wasm32-unknown-unknown/release/todo_integrity.wasm: /home/stduser/Coding/Softwares/memeshare-applet/dna/integrity_zomes/todo_integrity/src/lib.rs

@@ -9,6 +9,7 @@ pub enum EntryTypes {
 #[hdk_entry_helper]
 #[derive(Clone)]
 pub struct Task {
+    pub meme_image_src: String,
     pub description: String,
     pub status: TaskStatus,
 }

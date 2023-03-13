@@ -1,0 +1,9 @@
+/home/stduser/Coding/Softwares/memeshare-applet/target/release/deps/semver-61e12ded0d7e2e5a.rmeta: /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/semver-0.11.0/src/lib.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/semver-0.11.0/src/version.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/semver-0.11.0/src/version_req.rs
+
+/home/stduser/Coding/Softwares/memeshare-applet/target/release/deps/libsemver-61e12ded0d7e2e5a.rlib: /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/semver-0.11.0/src/lib.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/semver-0.11.0/src/version.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/semver-0.11.0/src/version_req.rs
+
+/home/stduser/Coding/Softwares/memeshare-applet/target/release/deps/semver-61e12ded0d7e2e5a.d: /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/semver-0.11.0/src/lib.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/semver-0.11.0/src/version.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/semver-0.11.0/src/version_req.rs
+
+/home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/semver-0.11.0/src/lib.rs:
+/home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/semver-0.11.0/src/version.rs:
+/home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/semver-0.11.0/src/version_req.rs:

@@ -2,6 +2,7 @@ import { ActionHash, EntryHash } from "@holochain/client"
 import { Assessment } from "@neighbourhoods/sensemaker-lite-types"
 
 interface Task {
+    meme_image_src: string,
     description: string,
     status: TaskStatus,
 }
@@ -18,6 +19,7 @@ interface TaskStatusIncomplete {
 }
 
 interface TaskToListInput {
+    input_meme_image_src: string,
     task_description: string,
     list: string,
 }

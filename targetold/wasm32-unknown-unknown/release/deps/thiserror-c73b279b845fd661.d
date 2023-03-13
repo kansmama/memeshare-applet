@@ -1,0 +1,9 @@
+/home/stduser/Coding/Softwares/memeshare-applet/target/wasm32-unknown-unknown/release/deps/thiserror-c73b279b845fd661.rmeta: /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.38/src/lib.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.38/src/aserror.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.38/src/display.rs
+
+/home/stduser/Coding/Softwares/memeshare-applet/target/wasm32-unknown-unknown/release/deps/libthiserror-c73b279b845fd661.rlib: /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.38/src/lib.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.38/src/aserror.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.38/src/display.rs
+
+/home/stduser/Coding/Softwares/memeshare-applet/target/wasm32-unknown-unknown/release/deps/thiserror-c73b279b845fd661.d: /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.38/src/lib.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.38/src/aserror.rs /home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.38/src/display.rs
+
+/home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.38/src/lib.rs:
+/home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.38/src/aserror.rs:
+/home/stduser/Coding/Softwares/memeshare-applet/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-1.0.38/src/display.rs:

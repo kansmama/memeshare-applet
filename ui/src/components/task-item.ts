@@ -31,10 +31,13 @@ export class TaskItem extends ScopedElementsMixin(LitElement) {
         `;
 
     render() {
-        console.log(this.completed)
+        console.log("inside task item - completed: " + this.completed)
+        console.log("inside task item - task description: " + this.task.entry.description)
+        console.log("inside task item - task meme image src: " + this.task.entry.meme_image_src)
         return html`
             <div class="task-item-container">
             <mwc-check-list-item left ?selected=${this.completed} @click=${this.dispatchToggleStatus}>${this.task.entry.description}</mwc-check-list-item>
+            <img src="${this.task.entry.meme_image_src}"/>
             <mwc-checkbox ?disabled=${this.taskIsAssessed} ?checked=${this.taskIsAssessed} @click=${this.dispatchAssessTask}></mwc-checkbox>
             </div>
         `
