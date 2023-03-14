@@ -1,7 +1,8 @@
 import { property } from "lit/decorators.js";
 import { ScopedElementsMixin } from "@open-wc/scoped-elements";
 import { LitElement, html } from "lit";
-import { ListItem as MWCListItem } from '@scoped-elements/material-web'
+//import { ListItem as MWCListItem } from '@scoped-elements/material-web'
+import { ListItem as MWCSelect } from '@scoped-elements/material-web'
 
 export class ListItem extends ScopedElementsMixin(LitElement) {
     @property()
@@ -28,7 +29,7 @@ export class ListItem extends ScopedElementsMixin(LitElement) {
 
     static get scopedElements() {
         return {
-            'mwc-list-item': MWCListItem,
+            'mwc-list-item': MWCSelect,
         }
     }
 }

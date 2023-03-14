@@ -25,9 +25,9 @@ export class ListList extends ScopedElementsMixin(LitElement) {
         return html`
             <div class="list-list-container">
                 <mwc-list>
-                    <mwc-list-item @click=${this.dispatchContextSelected}><b>IMPORTANT TASKS</b></mwc-list-item>
+                    <mwc-list-item @click=${this.dispatchContextSelected}><b>Most Liked Memes</b></mwc-list-item>
                     ${this.listList}
-                    <add-item itemType="list" @new-item=${this.addNewList}></add-item>
+                    <add-item itemType="Meme Category" @new-item=${this.addNewList}></add-item>
                 <mwc-list>
             </div>
         `

@@ -98,12 +98,12 @@ export class TodoStore {
     console.log("in todo store addTaskToList. Task.meme_image_src is  + task.meme_image_src");
     let newTask = await this.service.addTaskToList(task);
     console.log("new Task description is" + newTask.entry.description);
-    console.log("new Task meme image src is" + newTask.entry.meme_image_src);
+    //console.log("new Task meme image src is" + newTask.entry.meme_image_src);
 
     this.#tasksInLists.update(lists => {
       lists[task.list] = [...lists[task.list], newTask];
       console.log("in addTaskToList in update. Description is" + lists[task.list][0].entry.description);
-      console.log("in addTaskToList in update. meme image src is" + lists[task.list][0].entry.meme_image_src);
+      //console.log("in addTaskToList in update. meme image src is" + lists[task.list][0].entry.meme_image_src);
       return lists;
     });
   }

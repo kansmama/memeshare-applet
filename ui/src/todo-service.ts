@@ -9,7 +9,7 @@ export class TodoService {
   }
 
   async addTaskToList(input: TaskToListInput): Promise<WrappedEntry<Task>> {
-    console.log("in addTaskToList in todo service Task.meme_image_src is + input.meme_image_src");
+    console.log("in addTaskToList in todo service Task.task_description is" + input.task_description);
     return this.callZome('add_task_to_list', input);
   }
 
