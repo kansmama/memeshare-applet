@@ -44,7 +44,9 @@ export class TaskList extends ScopedElementsMixin(LitElement) {
         this.updateTaskList()
         if (this.isContext) {
             return html`
-            <!--upload-meme-dialog
+
+            <!--COMMENTED OUT------
+             upload-meme-dialog
             @meme-added=${(e:any) => (this.listName = this.listName)/*this.handleWeGroupAdded(e)*/}
             @uploading-meme=${(e:any) => (this.listName = this.listName)/*this.showLoading()*/}
             @new-item=${this.addNewTask}
@@ -56,7 +58,9 @@ export class TaskList extends ScopedElementsMixin(LitElement) {
               @click=${() => this._uploadMemeDialog.open()}
               style="margin-top: 4px; --mdc-theme-secondary: #9ca5e3;"
             ></mwc-fab>
-          </sl-tooltip-->
+          </sl-tooltip 
+          -------COMMENTED OUT-->
+
                 <div class="home-page">
                     <mwc-list>
                         ${this.tasks}
@@ -103,7 +107,9 @@ export class TaskList extends ScopedElementsMixin(LitElement) {
             ${tasksWithAssessments.map((task) => html`
                 <task-item .task=${task} .completed=${('Complete' in task.entry.status)} .taskIsAssessed=${task.assessments != undefined} @toggle-task-status=${this.toggleTaskStatus}  @assess-task-item=${this.assessTaskItem}></task-item> 
             `)}
-            <!--add-item itemType="Meme Caption" @new-item=${this.addNewTask}></add-item>
+            
+            <!--COMMENTED OUT------
+             add-item itemType="Meme Caption" @new-item=${this.addNewTask}></add-item>
             <upload-meme-dialog
             @meme-added=${(e:any) => (this.listName = this.listName)/*this.handleWeGroupAdded(e)*/}
             @uploading-meme=${(e:any) => (this.listName = this.listName)/*this.showLoading()*/}
@@ -116,7 +122,9 @@ export class TaskList extends ScopedElementsMixin(LitElement) {
               @click=${() => this._uploadMemeDialog.open()}
               style="margin-top: 4px; --mdc-theme-secondary: #9ca5e3;"
             ></mwc-fab>
-          </sl-tooltip-->
+          </sl-tooltip 
+          ---------COMMENTED OUT-->
+          
             `
             //console.log('tasks in list, with assessment', tasksWithAssessments)
         }
