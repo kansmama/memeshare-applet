@@ -16,6 +16,7 @@ import {
     Fab
   } from "@scoped-elements/material-web";
 import { SlTooltip } from "@scoped-elements/shoelace";
+import { AgentPubKey,encodeHashToBase64 } from "@holochain/client";
 
 
 // add item at the bottom
@@ -42,13 +43,13 @@ export class TaskList extends ScopedElementsMixin(LitElement) {
 
     render() {
         this.updateTaskList()
-        if (this.isContext) {
-            return html`
+        /*
+            upload meme dialog html code commented out
 
-            <!--COMMENTED OUT------
+                        <!--COMMENTED OUT------
              upload-meme-dialog
-            @meme-added=${(e:any) => (this.listName = this.listName)/*this.handleWeGroupAdded(e)*/}
-            @uploading-meme=${(e:any) => (this.listName = this.listName)/*this.showLoading()*/}
+            @meme-added=${(e:any) => (this.listName = this.listName)/*this.handleWeGroupAdded(e)}
+            @uploading-meme=${(e:any) => (this.listName = this.listName)/*this.showLoading()}
             @new-item=${this.addNewTask}
             id="upload-meme-dialog"
           ></upload-meme-dialog>
@@ -60,6 +61,12 @@ export class TaskList extends ScopedElementsMixin(LitElement) {
             ></mwc-fab>
           </sl-tooltip 
           -------COMMENTED OUT-->
+        */
+
+        if (this.isContext) {
+            return html`
+
+
 
                 <div class="home-page">
                     <mwc-list>
@@ -94,6 +101,7 @@ export class TaskList extends ScopedElementsMixin(LitElement) {
         input_meme_image_src: e.detail.new_meme_image_src,
         task_description: e.detail.newValue,
         list: this.listName!,
+        author: this.todoStore.myAgentPubKey
     })
         await this.todoStore.fetchAllTasks
         this.updateTaskList()
@@ -191,8 +199,8 @@ export class TaskList extends ScopedElementsMixin(LitElement) {
             resource_eh: e.detail.task.entry_hash,
             method_eh: get(this.sensemakerStore.appletConfig()).methods["total_importance_method"],
         })
-        console.log('created assessment with assessmentValue');
-        console.log( ("Integer" in assessment.value)?assessment.value.Integer:4);
+        //console.log('created assessment with assessmentValue');
+        //console.log( ("Integer" in assessment.value)?assessment.value.Integer:4);
         //console.log('created objective assessment', objectiveAssessmentEh)
     }
     static get scopedElements() {

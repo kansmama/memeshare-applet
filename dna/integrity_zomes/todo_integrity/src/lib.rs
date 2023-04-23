@@ -1,4 +1,5 @@
 use hdi::prelude::*;
+use crate::holo_hash::AgentPubKeyB64;
 
 #[hdk_entry_defs]
 #[unit_enum(UnitEntryTypes)]
@@ -12,6 +13,7 @@ pub struct Task {
     pub meme_image_src: String,
     pub description: String,
     pub status: TaskStatus,
+    pub author: AgentPubKeyB64
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, SerializedBytes)]

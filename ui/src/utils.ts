@@ -18,6 +18,7 @@ function addMyAssessmentsToTasks(myPubKey: string, tasks: WrappedEntry<Task>[], 
       let myAssessment
       if (assessmentsForTask) {
         myAssessment = assessmentsForTask.find(assessment => encodeHashToBase64(assessment.author) === myPubKey)
+        console.log("myAssessment entries: " + encodeHashToBase64((typeof myAssessment != "undefined")?myAssessment.author:new TextEncoder().encode("hash")));
       }
       else {
         myAssessment = undefined

@@ -1,10 +1,11 @@
-import { ActionHash, EntryHash } from "@holochain/client"
+import { ActionHash, EntryHash, AgentPubKeyB64 } from "@holochain/client"
 import { Assessment } from "@neighbourhoods/sensemaker-lite-types"
 
 interface Task {
     meme_image_src: string,
     description: string,
     status: TaskStatus,
+    author: AgentPubKeyB64
 }
 
 
@@ -22,6 +23,7 @@ interface TaskToListInput {
     input_meme_image_src: string,
     task_description: string,
     list: string,
+    author: AgentPubKeyB64,
 }
 
 interface WrappedEntry<T> {

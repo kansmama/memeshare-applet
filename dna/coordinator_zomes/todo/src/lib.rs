@@ -2,6 +2,7 @@ use std::collections::BTreeMap;
 
 use hdk::prelude::*;
 use todo_integrity::{EntryTypes, LinkTypes, Task, TaskStatus};
+use crate::holo_hash::AgentPubKeyB64;
 
 #[hdk_extern]
 pub fn get_latest_task(action_hash: ActionHash) -> ExternResult<Option<Task>> {
@@ -43,12 +44,14 @@ pub fn add_task_to_list(
         input_meme_image_src,
         task_description,
         list,
+        author
     }: TaskToListInput,
 ) -> ExternResult<WrappedEntry<Task>> {
     let task = Task {
         meme_image_src: input_meme_image_src,
         description: task_description,
         status: TaskStatus::Incomplete,
+        author: author
     };
     let action_hash = create_entry(EntryTypes::Task(task.clone()))?;
     let entry_hash = hash_entry(task.clone())?;
@@ -66,6 +69,7 @@ pub struct TaskToListInput {
     input_meme_image_src: String,
     task_description: String,
     list: String,
+    author: AgentPubKeyB64
 }
 
 #[hdk_extern]
@@ -78,6 +82,7 @@ pub fn complete_task(task_action_hash: ActionHash) -> ExternResult<ActionHash> {
         meme_image_src: task.meme_image_src,
         description: task.description,
         status: TaskStatus::Complete,
+        author: task.author
     };
     update_entry(task_action_hash, updated_task)
 }
@@ -92,6 +97,7 @@ pub fn uncomplete_task(task_action_hash: ActionHash) -> ExternResult<ActionHash>
         meme_image_src: task.meme_image_src,
         description: task.description,
         status: TaskStatus::Incomplete,
+        author: task.author
     };
     update_entry(task_action_hash, updated_task)
 }
