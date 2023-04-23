@@ -9,7 +9,7 @@ import { get } from "svelte/store";
 import { AddItem } from "./add-item";
 import { List } from '@scoped-elements/material-web'
 import { SensemakerStore } from "@neighbourhoods/nh-we-applet";
-import { CreateAssessmentInput } from "@neighbourhoods/sensemaker-lite-types";
+import { CreateAssessmentInput, RangeValueInteger,RangeValue } from "@neighbourhoods/sensemaker-lite-types";
 import { addMyAssessmentsToTasks } from "../utils";
 import { UploadMemeDialog } from "./upload-meme-dialog";
 import {
@@ -101,18 +101,29 @@ export class TaskList extends ScopedElementsMixin(LitElement) {
     updateTaskList() {
         // check if displaying a context or not
         //console.log("inside updateTaskList");
+        //<task-item .task=${task} .completed=${('Complete' in task.entry.status)} .taskIsAssessed=${task.assessments != undefined} @toggle-task-status=${this.toggleTaskStatus}  @assess-task-item=${this.assessTaskItem}></task-item> 
+        //Below logic: Using myAssessment's assessment value to turn taskIsAssessed true or false. Doesn't work as assessment doesn't get updated.
+        //<task-item .task=${task} .completed=${('Complete' in task.entry.status)} .taskIsAssessed=${(task.assessments != undefined)?(("Integer" in task.assessments.value)?(task.assessments.value.Integer != 0):false):false} @toggle-task-status=${this.toggleTaskStatus} @assess-task-item=${this.assessTaskItem}></task-item>
+        //Below logic: prints the value of assessment value Integer current user gave.
+        //<b>taskIsAssessed is ${(task.assessments != undefined)?(("Integer" in task.assessments.value)?(task.assessments.value.Integer):false):false} .</b>
         if (this.listName && !this.isContext) {
             const tasksWithAssessments = addMyAssessmentsToTasks(this.todoStore.myAgentPubKey, get(this.todoStore.listTasks(this.listName)), get(this.sensemakerStore.resourceAssessments()));
             this.tasks = html`
             ${tasksWithAssessments.map((task) => html`
-                <task-item .task=${task} .completed=${('Complete' in task.entry.status)} .taskIsAssessed=${task.assessments != undefined} @toggle-task-status=${this.toggleTaskStatus}  @assess-task-item=${this.assessTaskItem}></task-item> 
+                             
+            <task-item .task=${task} .completed=${('Complete' in task.entry.status)} .taskIsAssessed=${task.assessments != undefined} @toggle-task-status=${this.toggleTaskStatus}  @assess-task-item=${this.assessTaskItem}></task-item> 
+                <font color = #ffffff ><b>_________________________</b></font>
             `)}
             
-            <!--COMMENTED OUT------
+
+          
+            `
+            /*console.log('tasks in list, with assessment', tasksWithAssessments)
+                        <!--COMMENTED OUT------
              add-item itemType="Meme Caption" @new-item=${this.addNewTask}></add-item>
             <upload-meme-dialog
-            @meme-added=${(e:any) => (this.listName = this.listName)/*this.handleWeGroupAdded(e)*/}
-            @uploading-meme=${(e:any) => (this.listName = this.listName)/*this.showLoading()*/}
+            @meme-added=${(e:any) => (this.listName = this.listName)/*this.handleWeGroupAdded(e)}
+            @uploading-meme=${(e:any) => (this.listName = this.listName)/*this.showLoading()}
             @new-item=${this.addNewTask}
             id="upload-meme-dialog"
           ></upload-meme-dialog>
@@ -123,18 +134,34 @@ export class TaskList extends ScopedElementsMixin(LitElement) {
               style="margin-top: 4px; --mdc-theme-secondary: #9ca5e3;"
             ></mwc-fab>
           </sl-tooltip 
-          ---------COMMENTED OUT-->
-          
-            `
-            //console.log('tasks in list, with assessment', tasksWithAssessments)
+          ---------COMMENTED OUT-->*/
         }
         else if (this.isContext) {
             console.log('context result', get(this.sensemakerStore.contextResults()))
             const tasksInContext = addMyAssessmentsToTasks(this.todoStore.myAgentPubKey, get(this.todoStore.tasksFromEntryHashes(get(this.sensemakerStore.contextResults())["most_important_tasks"])), get(this.sensemakerStore.resourceAssessments()));
+            var zeroRangeValue:RangeValueInteger = {Integer:0};
             this.tasks = html`
-            ${tasksInContext.map((task) => html`
-               <task-item .task=${task} .completed=${('Complete' in task.entry.status)} .taskIsAssessed=${task.assessments != undefined} @toggle-task-status=${this.toggleTaskStatus}></task-item> 
-            `)}
+            ${tasksInContext.map((task) => 
+                /*{
+                   console.log(typeof task.assessments?.value);
+                    // const isRangeValueInteger = (r: RangeValue | RangeValueInteger): r is RangeValueInteger => 'Integer' in r;
+                    const rangeValueVar = (task.assessments)?task.assessments.value:zeroRangeValue;*/
+                   // const rangeValueIntVar: RangeValueInteger = ((task.assessments)?task.assessments.value:zeroRangeValue).filter( isRangeValueInteger );
+                
+                //var rangeValueIntVar:RangeValueInteger = (task.assessments)?task.assessments.value:zeroRangeValue;
+                //<!--task-item .task=${task} .completed=${('Complete' in task.entry.status)} .taskIsAssessed=${(task.assessments != undefined)?(rangeValueVar):false} @toggle-task-status=${this.toggleTaskStatus}></task-item--> 
+                //<task-item .task=${task} .completed=${('Complete' in task.entry.status)} .taskIsAssessed=${(task.assessments != undefined)} @toggle-task-status=${this.toggleTaskStatus}></task-item>
+                //Below logic: Using myAssessment's assessment value to turn taskIsAssessed true or false. Doesn't work as assessment doesn't get updated.
+                //<task-item .task=${task} .completed=${('Complete' in task.entry.status)} .taskIsAssessed=${(task.assessments != undefined)?(("Integer" in task.assessments.value)?(task.assessments.value.Integer != 0):false):false} @toggle-task-status=${this.toggleTaskStatus} @assess-task-item=${this.assessTaskItem}></task-item>
+                //Below logic: prints the value of assessment value Integer current user gave.
+                //<b>taskIsAssessed is ${(task.assessments != undefined)?(("Integer" in task.assessments.value)?(task.assessments.value.Integer):false):false} .</b>                
+                html`
+               
+                <task-item .task=${task} .completed=${('Complete' in task.entry.status)} .taskIsAssessed=${(task.assessments != undefined)} @toggle-task-status=${this.toggleTaskStatus} @assess-task-item=${this.assessTaskItem}></task-item>
+                <font color = #ffffff ><b>_________________________</b></font>
+            `
+                //}
+            )}
             `
         }
     }
@@ -144,9 +171,13 @@ export class TaskList extends ScopedElementsMixin(LitElement) {
     }
     async assessTaskItem(e: CustomEvent) {
         //console.log(e.detail.task)
+        var assessmentValue:int = 1;
+        if (e.detail.taskIsAssessedInput) {
+            assessmentValue = 0
+        }
         const assessment: CreateAssessmentInput = {
             value: {
-                Integer: 1
+                Integer: assessmentValue
             },
             // this is one of the main reasons we store the applet config in the sensemaker store, so that we can access
             // the entry hashes we need
@@ -160,7 +191,8 @@ export class TaskList extends ScopedElementsMixin(LitElement) {
             resource_eh: e.detail.task.entry_hash,
             method_eh: get(this.sensemakerStore.appletConfig()).methods["total_importance_method"],
         })
-        //console.log('created assessment', assessmentEh)
+        console.log('created assessment with assessmentValue');
+        console.log( ("Integer" in assessment.value)?assessment.value.Integer:4);
         //console.log('created objective assessment', objectiveAssessmentEh)
     }
     static get scopedElements() {

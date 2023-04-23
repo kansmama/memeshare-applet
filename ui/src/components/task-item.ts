@@ -39,20 +39,21 @@ export class TaskItem extends ScopedElementsMixin(LitElement) {
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <style>
             .fa-thumbs-down {
-            font-size: 50px;
+            font-size: 40px;
             cursor: pointer;
             user-select: none;
+            color: red;
             }
 
 
             .fa-thumbs-down:hover {
-            color: darkblue;
+            color: green;
             }
             .fa-thumbs-up {
-                font-size: 50px;
+                font-size: 40px;
                 cursor: pointer;
                 user-select: none;
-                color: darkblue;
+                color: green;
                 }
             </style>
             </head>
@@ -66,7 +67,7 @@ export class TaskItem extends ScopedElementsMixin(LitElement) {
                 ? html`<i ?disabled=${this.taskIsAssessed} ?checked=${this.taskIsAssessed} @click=${this.dispatchAssessTask} class="fa fa-thumbs-up"></i>`
                 : html`<i ?disabled=${this.taskIsAssessed} ?checked=${this.taskIsAssessed} @click=${this.dispatchAssessTask} class="fa fa-thumbs-down"></i>`
             }
-            </body>'
+            </body>
         `
     }
     dispatchToggleStatus() {
@@ -89,10 +90,12 @@ export class TaskItem extends ScopedElementsMixin(LitElement) {
         icon?.classList.toggle('fa-thumbs-down');*/
         if(!this.taskIsAssessed) {
             const task = this.task;
+            var taskIsAssessedInput:Boolean = this.taskIsAssessed;
             if (task) {
                 const options = {
                     detail: {
                         task,
+                        taskIsAssessedInput,
                     },
                     bubbles: true,
                     composed: true
