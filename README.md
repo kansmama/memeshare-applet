@@ -1,5 +1,5 @@
-# todo applet
-This is a basic todo list application where you can create multiple lists and add tasks to each list. These tasks can be toggled between completed and incomplete. Additionally, using the [neighbourhoods sensemaker]() along with the [neighbourhoods fork of We](https://github.com/neighbour-hoods/nh-we/pull/3) (which instantiates a sensemaker instance with each group) tasks can be "assessed" as "important" (currently just another checkbox). The app can then display a "social context", where todo items are ordered according to importance (total number of assessments) and which have at least one assessment.
+# Memeshare applet
+This is a basic Meme sharing application where you can create multiple lists and add memes to each list. Using the [neighbourhoods sensemaker]() along with the [neighbourhoods fork of We](https://github.com/neighbour-hoods/nh-we/pull/3) (which instantiates a sensemaker instance with each group) memes can be "assessed" as "Liked" (through the Like button below each meme). The app can then display a "social context", where memes are ordered according to most number of likes (total number of likes) and which have at least one like.
 
 ## Environment Setup
 
