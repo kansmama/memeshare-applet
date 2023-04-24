@@ -30,5 +30,31 @@ function addMyAssessmentsToTasks(myPubKey: string, tasks: WrappedEntry<Task>[], 
     })
     return tasksWithMyAssessments
   }
+  function addMyLikesToMemes(myPubKey: string, tasks: WrappedEntry<Task>[], assessments: { [entryHash: string]: Array<Assessment> }): WrappedTaskWithAssessment[] {
+    //console.log("inside addMyLikesToMemes tasks[0] is " + tasks[0])  
+    if (tasks[0]) {
+      console.log("inside addMyLikesToMemes tasks[0].entry.description is " + tasks[0].entry.description)
+      //console.log("inside addMyLikesToMemes tasks[0].entry.meme_image_srcis " + tasks[0].entry.meme_image_src)   
+    }
+    console.log("inside addMyLikesToMemes");
+    const memesWithMyLikes = tasks.map(task => {
+        const likesForMeme = assessments[encodeHashToBase64(task.entry_hash)]
+        //console.log("inside addMyLikesToMemes task meme image src is " + task.entry.meme_image_src)
+        console.log("inside addMyLikesToMemes task description is " + task.entry.description)
+        let myLike
+        if (likesForMeme) {
+          myLike = likesForMeme.find(assessment => encodeHashToBase64(assessment.author) === myPubKey)
+          console.log("myAssessment entries: " + encodeHashToBase64((typeof myLike != "undefined")?myLike.author:new TextEncoder().encode("hash")));
+        }
+        else {
+          myLike = undefined
+        }
+        return {
+          ...task,
+          assessments: myLike,
+        }
+      })
+      return memesWithMyLikes
+    }
 
-  export { addMyAssessmentsToTasks }
+  export { addMyAssessmentsToTasks, addMyLikesToMemes }

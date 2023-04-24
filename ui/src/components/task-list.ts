@@ -10,7 +10,7 @@ import { AddItem } from "./add-item";
 import { List } from '@scoped-elements/material-web'
 import { SensemakerStore } from "@neighbourhoods/nh-we-applet";
 import { CreateAssessmentInput, RangeValueInteger,RangeValue } from "@neighbourhoods/sensemaker-lite-types";
-import { addMyAssessmentsToTasks } from "../utils";
+import { addMyAssessmentsToTasks, addMyLikesToMemes } from "../utils";
 import { UploadMemeDialog } from "./upload-meme-dialog";
 import {
     Fab
@@ -115,12 +115,12 @@ export class TaskList extends ScopedElementsMixin(LitElement) {
         //Below logic: prints the value of assessment value Integer current user gave.
         //<b>taskIsAssessed is ${(task.assessments != undefined)?(("Integer" in task.assessments.value)?(task.assessments.value.Integer):false):false} .</b>
         if (this.listName && !this.isContext) {
-            const tasksWithAssessments = addMyAssessmentsToTasks(this.todoStore.myAgentPubKey, get(this.todoStore.listTasks(this.listName)), get(this.sensemakerStore.resourceAssessments()));
+            const tasksWithAssessments = addMyLikesToMemes(this.todoStore.myAgentPubKey, get(this.todoStore.listTasks(this.listName)), get(this.sensemakerStore.resourceAssessments()));
             this.tasks = html`
             ${tasksWithAssessments.map((task) => html`
                              
-            <task-item .task=${task} .completed=${('Complete' in task.entry.status)} .taskIsAssessed=${task.assessments != undefined} @toggle-task-status=${this.toggleTaskStatus}  @assess-task-item=${this.assessTaskItem}></task-item> 
-                <font color = #ffffff ><b>_________________________</b></font>
+            <task-item .task=${task} .completed=${('Complete' in task.entry.status)} .taskIsAssessed=${task.assessments != undefined} .memeLiked=${(task.assessments != undefined)?(("Integer" in task.assessments.value)?(task.assessments.value.Integer != 0):false):false} @toggle-task-status=${this.toggleTaskStatus}  @assess-task-item=${this.assessTaskItem} @like-meme-item=${this.likeMemeItem}></task-item> 
+                <!--font color = #ffffff ><b>_________________________</b></font-->
             `)}
             
 
@@ -146,7 +146,7 @@ export class TaskList extends ScopedElementsMixin(LitElement) {
         }
         else if (this.isContext) {
             console.log('context result', get(this.sensemakerStore.contextResults()))
-            const tasksInContext = addMyAssessmentsToTasks(this.todoStore.myAgentPubKey, get(this.todoStore.tasksFromEntryHashes(get(this.sensemakerStore.contextResults())["most_important_tasks"])), get(this.sensemakerStore.resourceAssessments()));
+            const tasksInContext = addMyLikesToMemes(this.todoStore.myAgentPubKey, get(this.todoStore.tasksFromEntryHashes(get(this.sensemakerStore.contextResults())["most_important_tasks"])), get(this.sensemakerStore.resourceAssessments()));
             var zeroRangeValue:RangeValueInteger = {Integer:0};
             this.tasks = html`
             ${tasksInContext.map((task) => 
@@ -165,8 +165,8 @@ export class TaskList extends ScopedElementsMixin(LitElement) {
                 //<b>taskIsAssessed is ${(task.assessments != undefined)?(("Integer" in task.assessments.value)?(task.assessments.value.Integer):false):false} .</b>                
                 html`
                
-                <task-item .task=${task} .completed=${('Complete' in task.entry.status)} .taskIsAssessed=${(task.assessments != undefined)} @toggle-task-status=${this.toggleTaskStatus} @assess-task-item=${this.assessTaskItem}></task-item>
-                <font color = #ffffff ><b>_________________________</b></font>
+                <task-item .task=${task} .completed=${('Complete' in task.entry.status)} .taskIsAssessed=${(task.assessments != undefined)} .memeLiked=${(task.assessments != undefined)?(("Integer" in task.assessments.value)?(task.assessments.value.Integer != 0):false):false} @toggle-task-status=${this.toggleTaskStatus} @assess-task-item=${this.assessTaskItem} @like-meme-item=${this.likeMemeItem}></task-item>
+                <!--font color = #ffffff ><b>_________________________</b></font-->
             `
                 //}
             )}
@@ -203,6 +203,36 @@ export class TaskList extends ScopedElementsMixin(LitElement) {
         //console.log( ("Integer" in assessment.value)?assessment.value.Integer:4);
         //console.log('created objective assessment', objectiveAssessmentEh)
     }
+    async likeMemeItem(e: CustomEvent) {
+        //console.log(e.detail.task)
+        const likeValue = e.detail.memeLikedInput;
+        /*if (e.detail.memeLikedInput) {
+            likeValue = 1
+        }*/
+        console.log("Inside likeMemeItem. likeValue: " + likeValue);
+        const assessment: CreateAssessmentInput = {
+            value: {
+                Integer: likeValue
+            },
+            // this is one of the main reasons we store the applet config in the sensemaker store, so that we can access
+            // the entry hashes we need
+            dimension_eh: get(this.sensemakerStore.appletConfig()).dimensions["importance"],
+            subject_eh: e.detail.task.entry_hash,
+            maybe_input_dataSet: null,
+
+        }
+        //console.log("Inside likeMemeItem. assessment input created " + (("Integer" in assessment.value)?assessment.value.Integer:"No Integer"));
+        const assessmentEh = await this.sensemakerStore.createAssessment(assessment)
+        console.log("Inside likeMemeItem. assessmentEh created");
+        const objectiveAssessmentEh = await this.sensemakerStore.runMethod({
+            resource_eh: e.detail.task.entry_hash,
+            method_eh: get(this.sensemakerStore.appletConfig()).methods["total_importance_method"],
+        })
+        console.log("Inside likeMemeItem. total like method run");
+        //console.log('created assessment with assessmentValue');
+        //console.log( ("Integer" in assessment.value)?assessment.value.Integer:4);
+        //console.log('created objective assessment', objectiveAssessmentEh)
+    }    
     static get scopedElements() {
         return {
         'task-item': TaskItem,

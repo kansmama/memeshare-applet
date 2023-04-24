@@ -3,7 +3,7 @@ import { AppletConfigInput, ConfigCulturalContext, ConfigMethod, ConfigResourceT
 const importanceRange: Range = {
     "name": "1-scale",
     "kind": {
-        "Integer": { "min": 0, "max": 1 }
+        "Integer": { "min": -1, "max": 1 }
     }
 }
 const importanceDimension: Dimension = {
@@ -15,7 +15,7 @@ const importanceDimension: Dimension = {
 const totalImportanceRange: Range = {
     "name": "1-scale-total",
     "kind": {
-        "Integer": { "min": 0, "max": 1000000 }
+        "Integer": { "min": -1000000, "max": 1000000 }
     }
 }
 const totalImportanceDimension = {
@@ -30,7 +30,7 @@ const totalImportanceDimension = {
 const likeRange: Range = {
     "name": "1-scale",
     "kind": {
-        "Integer": { "min": -1, "max": 1 }
+        "Integer": { "min": 0, "max": 1 }
     }
 }
 const likeDimension: Dimension = {
@@ -42,7 +42,7 @@ const likeDimension: Dimension = {
 const totalLikeRange: Range = {
     "name": "1-scale-total",
     "kind": {
-        "Integer": { "min": -1000000, "max": 1000000 }
+        "Integer": { "min": 0, "max": 1000000 }
     }
 }
 const totalLikeDimension = {
@@ -70,7 +70,7 @@ const totalImportanceMethod: ConfigMethod = {
 const importanceThreshold: ConfigThreshold = {
     "dimension": totalImportanceDimension,
     "kind": { "GreaterThan": null },
-    "value": { "Integer": 0 }
+    "value": { "Integer": -1000000 }
 }
 const mostImportantTasksContext: ConfigCulturalContext = {
     "name": "most_important_tasks",
@@ -92,7 +92,7 @@ const totalLikeMethod: ConfigMethod = {
 const likeThreshold: ConfigThreshold = {
     "dimension": totalLikeDimension,
     "kind": { "GreaterThan": null },
-    "value": { "Integer": -100000 }
+    "value": { "Integer": 0 }
 }
 const mostLikedMemesContext: ConfigCulturalContext = {
     "name": "most_important_tasks",
@@ -105,10 +105,10 @@ const mostLikedMemesContext: ConfigCulturalContext = {
 
 const appletConfig: AppletConfigInput = {
     "name": "todo_applet",
-    "dimensions": [importanceDimension, totalImportanceDimension],
+    "dimensions": [importanceDimension, totalImportanceDimension, likeDimension, totalLikeDimension],
     "resource_types": [taskItemResourceType],
-    "methods": [totalImportanceMethod],
-    "cultural_contexts": [mostImportantTasksContext]
+    "methods": [totalImportanceMethod, totalLikeMethod],
+    "cultural_contexts": [mostImportantTasksContext, mostLikedMemesContext]
 }
 
 export default appletConfig
